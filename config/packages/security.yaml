@@ -35,5 +35,13 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/crafter, roles: ROLE_USER }
+        - { path: ^/leveling_job, roles: ROLE_USER }
+        - { path: ^/craftweapons, roles: ROLE_USER }
+        - { path: ^/craftarmor, roles: ROLE_USER }
+        - { path: ^/craftengineering, roles: ROLE_USER }
+        - { path: ^/craftjewel, roles: ROLE_USER }
+        - { path: ^/craftarcana, roles: ROLE_USER }
+        - { path: ^/craftcooking, roles: ROLE_USER }
+        - { path: ^/craftfurninshing, roles: ROLE_USER }
