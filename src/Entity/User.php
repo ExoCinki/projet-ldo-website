@@ -192,6 +192,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $level;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $TailleurDePierre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -649,6 +654,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLevel(int $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    public function getTailleurDePierre(): ?int
+    {
+        return $this->TailleurDePierre;
+    }
+
+    public function setTailleurDePierre(int $TailleurDePierre): self
+    {
+        $this->TailleurDePierre = $TailleurDePierre;
 
         return $this;
     }

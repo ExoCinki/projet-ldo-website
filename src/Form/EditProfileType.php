@@ -68,6 +68,7 @@ class EditProfileType extends AbstractType
         ->add('FabArmes', ChoiceType::class, [
             'label' => 'Fabrication d\'armes',
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -85,6 +86,7 @@ class EditProfileType extends AbstractType
         ->add('FabArmures', ChoiceType::class, [
             'label' => 'Fabrication d\'armures',
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -101,6 +103,7 @@ class EditProfileType extends AbstractType
         ])
         ->add('Ingenierie', ChoiceType::class, [
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -117,6 +120,7 @@ class EditProfileType extends AbstractType
         ])
         ->add('Joaillerie', ChoiceType::class, [
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -133,6 +137,7 @@ class EditProfileType extends AbstractType
         ])
         ->add('ArtsObscurs', ChoiceType::class, [
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -149,6 +154,7 @@ class EditProfileType extends AbstractType
         ])
         ->add('Cuisine', ChoiceType::class, [
             'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
@@ -165,6 +171,24 @@ class EditProfileType extends AbstractType
         ])
         ->add('Ameublement', ChoiceType::class, [
             'choices'  => [
+                '0' => 0,
+                '10' => 10,
+                '30' => 30,
+                '50' => 50,
+                '70' => 70,
+                '90' => 90,
+                '110' => 110,
+                '130' => 130,
+                '150' => 150,
+                '170' => 170,
+                '180' => 180,
+                '190' => 190,
+                '200' => 200,
+            ],
+        ])
+        ->add('TailleurDePierre', ChoiceType::class, [
+            'choices'  => [
+                '0' => 0,
                 '10' => 10,
                 '30' => 30,
                 '50' => 50,
