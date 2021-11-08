@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leveling Cuisine{% endblock %}
+
+{% block body %}
+<div class="container text-center text-light">
+<img src="{{ asset('assets/metier/cooking.png') }}" class="text-center">
+<h4>Cuisine</h4>
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Niveau</th>
+      <th scope="col">Expérience</th>
+      <th scope="col">Objets a fabriquer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 - 50</td>
+      <td>3 450 XP</td>
+      <td>1x Petite Ration & 144x Petite ration énergétique</td>
+    </tr>
+    <tr>
+      <td>50 - 100</td>
+      <td>24 820 XP</td>
+      <td>4 938x Petite ration énergétique</td>
+    </tr>
+    <tr>
+      <td>100 - 150</td>
+      <td>118 500 XP</td>
+      <td>4 938x Petite ration énergétique</td>
+    </tr>
+    <tr>
+      <td>150 - 200</td>
+      <td>393 750 XP</td>
+      <td>16 407x Petite ration énergétique</td>
+    </tr>
+  </tbody>
+</table>
+<a href="{{path('leveling_job')}}"><button type="button" class="btn btn-primary text-right">Retour</button></a>
+</div>
+{% endblock %}

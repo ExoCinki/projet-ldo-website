@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leveling Ingénierie{% endblock %}
+
+{% block body %}
+<div class="container text-center text-light">
+<img src="{{ asset('assets/metier/engineering.png') }}" class="text-center">
+<h4>Ingénierie</h4>
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Niveau</th>
+      <th scope="col">Expérience</th>
+      <th scope="col">Objets a fabriquer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 - 50</td>
+      <td>2 950 XP & 8 175 XP</td>
+      <td>28x ensembles de Flèche de fer & 228 Booster de compétence faible</td>
+    </tr>
+    <tr>
+      <td>50 - 100</td>
+      <td>86 250 XP</td>
+      <td>799x ensembles de Flèche de fer</td>
+    </tr>
+    <tr>
+      <td>100 - 150</td>
+      <td>404 550 XP</td>
+      <td>3 746 x séries de Flèche de fer</td>
+    </tr>
+    <tr>
+      <td>150 - 200</td>
+      <td>1 379 500 XP</td>
+      <td>12 774x séries de Flèche de fer</td>
+    </tr>
+  </tbody>
+</table>
+<a href="{{path('leveling_job')}}"><button type="button" class="btn btn-primary text-right">Retour</button></a>
+</div>
+{% endblock %}

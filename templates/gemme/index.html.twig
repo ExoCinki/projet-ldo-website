@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Gemmes{% endblock %}
+
+{% block body %}
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Icon</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Tier</th>
+      <th scope="col">Stuff</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for gemme in gemmes  %}
+    <tr>
+      <th scope="row"> <img src="{{ asset('' ~ gemme.picture) }}" alt="" srcset="" width="64" height="64"> </th>
+      <td>{{ gemme.name}}</td>
+      <td>{{ gemme.details}}</td>
+      <td>{{ gemme.tier}}</td>
+      <td>{{ gemme.stuff}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

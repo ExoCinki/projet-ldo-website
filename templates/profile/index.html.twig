@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+ <div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-user"></i> Détails du compte : </h2>
+ <a href="{{path('edit_profile')}}"><button type="button" class="btn btn-warning">Edition</button></a>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><i class="fas fa-at"></i> Email</th>
+      <td>{{ app.user.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fas fa-user-tag"></i> Roles</th>
+      <td> 
+      {% for role in app.user.roles  %}
+      {% if role == 'ROLE_USER' %}
+            Utilisateur
+      {% endif %}
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fab fa-discord"></i> Discord</th>
+      <td>{{ app.user.discordid}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fas fa-chess-king"></i> Arme Principale</th>
+      <td>{{ app.user.FirstWeapon}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fas fa-chess-knight"></i> Arme Secondaire</th>
+      <td>{{ app.user.SecondWeapon}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fas fa-khanda"></i> Spé</th>
+      <td>{{ app.user.spe}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fas fa-child"></i> Level</th>
+      <td>{{ app.user.level}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><i class="fab fa-guilded"></i> Compagnie</th>
+      <td>{{ app.user.compagnie}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-5"><i class="fas fa-balance-scale"></i> Détails des métiers : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Icon</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Niveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/craftweapons.png') }}" alt="Fabrication d'armes" height="72" width="72"></th>
+      <td>Fabrication d'armes</td>
+      <td>{{ app.user.fabarmes}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/armoring.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Fabrication d'armures</td>
+      <td>{{ app.user.fabarmures}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/engineering.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Ingénierie</td>
+      <td>{{ app.user.ingenierie}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/jewelcrafting.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Joaillerie</td>
+      <td>{{ app.user.joaillerie}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/arcane.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Arts obscurs</td>
+      <td>{{ app.user.artsobscurs}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/cooking.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Cuisine</td>
+      <td>{{ app.user.cuisine}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/metier/furnishing.png') }}" alt="Fabrication d'armures" height="72" width="72"></th>
+      <td>Ameublement</td>
+      <td>{{ app.user.ameublement}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-5"><i class="fas fa-khanda"></i> Détails des armes : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Icon</th>
+      <th scope="col">Armes</th>
+      <th scope="col">Niveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/sword.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Epée & Bouclier</td>
+      <td>{{ app.user.swordshield}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/spear.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Lance</td>
+        <td>{{ app.user.lance}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/bow.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Arc</td>
+      <td>{{ app.user.arc}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/firestaff.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Bâton de Feu</td>
+      <td>{{ app.user.batonfeu}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/rapier.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Rapière</td>
+      <td>{{ app.user.rapiere}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/greataxe.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Hache Double</td>
+      <td>{{ app.user.hachedouble}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/musket.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Mousquet</td>
+      <td>{{ app.user.mousquet}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/lifestaff.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Bâton de vie</td>
+      <td>{{ app.user.batonvie}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/hatchet.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Hachette</td>
+      <td>{{ app.user.hachette}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/warhammer.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Marteau D'armes</td>
+      <td>{{ app.user.marteaudarmes}}</td>
+    </tr>
+    <tr>
+      <th scope="row"><img src="{{ asset('assets/icon/icegauntlet.png') }}" alt="Epée & Bouclier" height="64" width="120"></th>
+      <td scope="row">Gantelets de Glace</td>
+      <td>{{ app.user.ganteletsglace}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+{% endblock %}

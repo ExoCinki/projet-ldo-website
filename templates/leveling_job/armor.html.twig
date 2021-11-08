@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leveling Fabrication d'armures{% endblock %}
+
+{% block body %}
+<div class="container text-center text-light">
+<img src="{{ asset('assets/metier/armoring.png') }}" class="text-center">
+<h4>Fabrication d'armures</h4>
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Niveau</th>
+      <th scope="col">Expérience</th>
+      <th scope="col">Objets a fabriquer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 - 50</td>
+      <td>2,950 XP & 8,175 XP</td>
+      <td>228 x Baume à la chair de chêne faible</td>
+    </tr>
+    <tr>
+      <td>50 - 100</td>
+      <td>86 250 XP</td>
+      <td>2,396 x Baume à la chair de chêne faible</td>
+    </tr>
+    <tr>
+      <td>100 - 150</td>
+      <td>404 550 XP</td>
+      <td>11,238 x Baume à la chair de chêne faible</td>
+    </tr>
+    <tr>
+      <td>150 - 200</td>
+      <td>1 379 500 XP</td>
+      <td>38,320 x Baume à la chair de chêne faible</td>
+    </tr>
+  </tbody>
+</table>
+<a href="{{path('leveling_job')}}"><button type="button" class="btn btn-primary text-right">Retour</button></a>
+</div>
+{% endblock %}

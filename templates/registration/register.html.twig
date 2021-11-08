@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LDO - Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="container text-light">
+
+		<h1 class="text-center m-5"><i class="far fa-address-card"></i> Inscription</h1>
+		{{ form_start(registrationForm) }}
+		<div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.email) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.pseudo) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.discordid) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+			</div>
+		</div>
+        <div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.GearScore) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.level) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.compagnie) }}
+			</div>
+		</div>
+        <div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.spe) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.FirstWeapon) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.SecondWeapon) }}
+			</div>
+		</div>
+		<div class="row">
+			<h2 class="text-center m-5"><i class="fas fa-pencil-ruler"></i> Crafting</h2>
+			<div class="col">
+				{{ form_row(registrationForm.FabArmes) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.FabArmures) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Ingenierie) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Joaillerie) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.ArtsObscurs) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Cuisine) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Ameublement) }}
+			</div>
+		</div>
+
+		<div class="row">
+			<h2 class="text-center m-5"><i class="fas fa-box"></i> Armes</h2>
+			<div class="col">
+				{{ form_row(registrationForm.SwordShield) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Lance) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Arc) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.BatonFeu) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.Rapiere) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.HacheDouble) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.Mousquet) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.BatonVie) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(registrationForm.Hachette) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.MarteauDarmes) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.GanteletsGlace) }}
+			</div>
+		</div>
+<div class="row">	
+<div class="col text-center">
+		<button type="submit" class="btn btn-primary btn-lg text-center">Enregistrer</button>
+		{{ form_end(registrationForm) }}
+		</div>
+</div>
+	</div>
+</div>{% endblock %}

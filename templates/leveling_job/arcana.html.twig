@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leveling Arts Obscure {% endblock %}
+
+{% block body %}
+<div class="container text-center text-light">
+<img src="{{ asset('assets/metier/arcane.png') }}" class="text-center">
+<h4>Arts Obscure</h4>
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Niveau</th>
+      <th scope="col">Expérience</th>
+      <th scope="col">Objets a fabriquer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 - 1</td>
+      <td>100 XP</td>
+      <td>17x Potion de santé faible</td>
+    </tr>
+    <tr>
+      <td>1 - 50</td>
+      <td>11 025 XP</td>
+      <td>460x Potion de santé ordinaire</td>
+    </tr>
+    <tr>
+      <td>50 - 100</td>
+      <td>86 250 XP</td>
+      <td>959x Potion de santé puissante</td>
+    </tr>
+    <tr>
+      <td>100 - 150</td>
+      <td>404 550 XP</td>
+      <td>1 349x Potion de santé ultra puissante</td>
+    </tr>
+    <tr>
+      <td>150 - 200</td>
+      <td>1 379 500 XP</td>
+      <td>2 225x Potion de santé imprégnée</td>
+    </tr>
+  </tbody>
+</table>
+<a href="{{path('leveling_job')}}"><button type="button" class="btn btn-primary">Retour</button></a>
+</div>
+{% endblock %}
