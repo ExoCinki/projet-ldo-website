@@ -25,9 +25,12 @@ class UserCrudController extends AbstractCrudController
             ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Professionnel' => 'ROLE_PRO', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(),
             TextField::new('spe'),
             IntegerField::new('GearScore'),
+
             TextField::new('compagnie'),
             TextField::new('FirstWeapon'),
             TextField::new('SecondWeapon'),
+            TextField::new('discordid'),
+
             IntegerField::new('level'),
             IntegerField::new('FabArmes'),
             IntegerField::new('FabArmures'),
@@ -51,6 +54,10 @@ class UserCrudController extends AbstractCrudController
             IntegerField::new('GanteletsGlace')->hideOnIndex(),
             IntegerField::new('BatonVie')->hideOnIndex(),
             IntegerField::new('BatonVie')->hideOnIndex(),
+            IntegerField::new('StatFOR')->hideOnIndex(),
+            IntegerField::new('StatDEX')->hideOnIndex(),
+            IntegerField::new('StatINT')->hideOnIndex(),
+            IntegerField::new('StatCONCEN')->hideOnIndex(),
         ];
     }
 }
