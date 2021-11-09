@@ -11,7 +11,7 @@ class LevelingJobController extends AbstractController
 {
     /**
      * @Route("/levelingjob", name="leveling_job")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function index(): Response
     {
@@ -19,7 +19,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/craftweapons", name="craftweapons")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function weapons(): Response
     {
@@ -27,7 +27,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/armor", name="craftarmor")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function armor(): Response
     {
@@ -35,7 +35,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/engineering", name="craftengineering")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function engineering(): Response
     {
@@ -43,7 +43,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/jewel", name="craftjewel")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function jewel(): Response
     {
@@ -51,7 +51,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/arcana", name="craftarcana")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function arcana(): Response
     {
@@ -59,7 +59,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/cooking", name="craftcooking")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function cooking(): Response
     {
@@ -67,7 +67,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/furninshing", name="craftfurninshing")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function furninshing(): Response
     {

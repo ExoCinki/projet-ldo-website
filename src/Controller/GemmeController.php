@@ -12,7 +12,7 @@ class GemmeController extends AbstractController
 {
     /**
      * @Route("/gemme", name="gemme")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function index(GemmeRepository $gemmeRepository): Response
     {

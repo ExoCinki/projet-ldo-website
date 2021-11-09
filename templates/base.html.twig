@@ -20,10 +20,11 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="{{ path('home') }}">Home</a>
-      <a class="nav-item nav-link" href="{{ path('gemme') }}">Gemmes</a>
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <a class="nav-item nav-link" href="{{ path('crafter') }}">Les Crafters</a>
       <a class="nav-item nav-link" href="{{ path('leveling_job') }}">Leveling Métiers</a>
+      <a class="nav-item nav-link" href="{{ path('gemme') }}">Gemmes</a>
+      <a class="nav-item nav-link" href="{{ path('farm') }}">Farming</a>
       {% endif %}
     </div>
   </div>

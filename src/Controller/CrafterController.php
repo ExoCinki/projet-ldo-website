@@ -13,7 +13,7 @@ class CrafterController extends AbstractController
 {
     /**
      * @Route("/crafter", name="crafter")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_LDO")
      */
     public function index(UserRepository $userRepository): Response
     {
