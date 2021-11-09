@@ -19,32 +19,33 @@ class FarmRepository extends ServiceEntityRepository
         parent::__construct($registry, Farm::class);
     }
 
-    // /**
-    //  * @return Farm[] Returns an array of Farm objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllFarmNotCheck($checkornot = 0)
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+            
+        $entityManager = $this->getEntityManager();
 
-    /*
-    public function findOneBySomeField($value): ?Farm
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\Farm AS u
+            WHERE u.checkOrNot = :checkornot'
+        )->setParameter('checkornot', $checkornot);
+
+        return $query->getResult();
     }
-    */
+
+    public function findAllFarmCheck($checkornot = 1)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\Farm AS u
+            WHERE u.checkOrNot = :checkornot'
+        )->setParameter('checkornot', $checkornot);
+
+        return $query->getResult();
+    }
 }

@@ -67,7 +67,7 @@ class LevelingJobController extends AbstractController
     }
     /**
      * @Route("/levelingjob/furninshing", name="craftfurninshing")
-     * @IsGranted("ROLE_LDO")
+     * @IsGranted("ROLE_USER")
      */
     public function furninshing(): Response
     {

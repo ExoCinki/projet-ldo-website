@@ -36,6 +36,9 @@ security:
         - { path: /craftarcana, roles: ROLE_USER }
         - { path: /craftcooking, roles: ROLE_USER }
         - { path: /craftfurninshing, roles: ROLE_USER }
+        - { path: /farm, roles: ROLE_USER }
+        - { path: /farm_add, roles: ROLE_USER }
+        - { path: /farm_check, roles: ROLE_FARM }
         
     role_hierarchy:
         ROLE_ADMIN: ROLE_LDO
