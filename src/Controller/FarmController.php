@@ -56,7 +56,7 @@ class FarmController extends AbstractController
 
      /**
      * @Route("/farm/{id}/check", name="farm_check")
-     * @IsGranted({"ROLE_ADMIN", "ROLE_FARM"})
+     * @IsGranted("ROLE_FARM")
      */
     public function check(Farm $farm = null): Response
     {
