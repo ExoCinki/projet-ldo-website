@@ -26,8 +26,8 @@
 					<th scope="col">Description</th>
 					<th scope="col">Statue</th>
 					<th scope="col">Pseudo du demandeur</th>
-					<th scope="col">Créer le
-					</th>
+					<th scope="col">Créer le</th>
+					<th scope="col">Pseudo du Farmeur</th>
 					{% if is_granted('ROLE_FARM') %}
 						<th scope="col">Action</th>
 					{% elseif is_granted('ROLE_ADMIN') %}
@@ -51,11 +51,17 @@
 						</td>
 						<td>{{farm.nameUser}}</td>
 						<td>{{farm.createdAt|date('Y-m-d')}}</td>
+						<td>{{farm.farmeur}}</td>
 						{% if is_granted('ROLE_FARM') %}
 							<td>
 								<a href="{{path('farm_check', { id: farm.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
+									</button>
+								</a>
+								<a href="{{path('farm_loading', { id: farm.id })}}">
+									<button type="submit" class="btn btn-success btn-lg text-center">
+										Je prend
 									</button>
 								</a>
 							</td>
@@ -64,6 +70,11 @@
 								<a href="{{path('farm_check', { id: farm.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
+									</button>
+								</a>
+								<a href="{{path('farm_loading', { id: farm.id })}}">
+									<button type="submit" class="btn btn-success btn-lg text-center">
+										Je prend
 									</button>
 								</a>
 							</td>
@@ -85,8 +96,8 @@
 					<th scope="col">Description</th>
 					<th scope="col">Statue</th>
 					<th scope="col">Pseudo du demandeur</th>
-					<th scope="col">Créer le
-					</th>
+					<th scope="col">Créer le</th>
+					<th scope="col">Pseudo du Farmeur</th>
 					{% if is_granted('ROLE_FARM') %}
 						<th scope="col">Action</th>
 					{% elseif is_granted('ROLE_ADMIN') %}
@@ -110,6 +121,7 @@
 						</td>
 						<td>{{farm.nameUser}}</td>
 						<td>{{farm.createdAt|date('Y-m-d')}}</td>
+						<td>{{farm.farmeur}}</td>
 						{% if is_granted('ROLE_FARM') %}
 							<td>
 								<a href="{{path('farm_check', { id: farm.id })}}">

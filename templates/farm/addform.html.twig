@@ -8,26 +8,26 @@
 		<h1 class="text-center m-5">
 			<i class="fas fa-tractor"></i>
 			Demande de Farm</h1>
-		{{ form_start(form) }}
+		{{ form_start(formfarm) }}
 		<div class="row">
 			<div class="col">
-				{{ form_row(form.nameUser, {'value' : app.user.pseudo }) }}
+				{{ form_row(formfarm.nameUser, {'value' : app.user.pseudo }) }}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				{{ form_row(form.title) }}
+				{{ form_row(formfarm.title) }}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				{{ form_row(form.details) }}
+				{{ form_row(formfarm.details) }}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col text-center">
 				<button type="submit" class="btn btn-primary btn-lg text-center">Enregistrer</button>
-				{{ form_end(form) }}
+				{{ form_end(formfarm) }}
 			</div>
 		</div>
 	{% endblock %}
