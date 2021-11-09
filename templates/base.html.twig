@@ -30,6 +30,7 @@
   </div>
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <a class="nav-item nav-link" href="{{ path('profile') }}"><i class="far fa-user"></i> Mon Compte</a>
+      <a class="nav-item nav-link" href="{{ path('admin') }}"><i class="far fa-user"></i> Administration</a>
       {% endif %}
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <li class="nav-item">
