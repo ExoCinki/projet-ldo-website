@@ -22,7 +22,7 @@ class UserCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('pseudo'),
-            ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Professionnel' => 'ROLE_PRO', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(),
+            ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Farmeur' => 'ROLE_FARM', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(),
             TextField::new('spe'),
             IntegerField::new('GearScore'),
 
