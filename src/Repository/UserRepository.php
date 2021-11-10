@@ -130,4 +130,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         return $query->getResult();
     }
+
+    public function findAllUserBySpe()
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            ORDER BY u.spe ASC'
+        );
+
+        return $query->getResult();
+    }
 }

@@ -16,7 +16,7 @@ class ListUserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        $userlist = $userRepository->findAll();
+        $userlist = $userRepository->findAllUserBySpe();
         return $this->render('list_user/index.html.twig', [
             'userlist' => $userlist,
         ]);
