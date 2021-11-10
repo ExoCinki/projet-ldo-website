@@ -6,6 +6,7 @@ use App\Repository\FarmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FarmRepository::class)
@@ -21,11 +22,19 @@ class Farm
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=255)
+     * @Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 8,
+     *      minMessage = "Votre Prix doit avoir minimum {{ limit }} characters",
+     *      maxMessage = "Votre Prix doit avoir maximum {{ limit }} characters")
+     * @Assert\NotBlank
      */
     private $details;
 
@@ -46,16 +55,26 @@ class Farm
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=80)
+     * @Assert\NotBlank
      */
     private $nameUser;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(min=1,max=80)
+     * @Assert\NotBlank
      */
     private $farmeur;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 8,
+     *      minMessage = "Votre Quantité doit avoir minimum {{ limit }} characters",
+     *      maxMessage = "Votre Quantité doit avoir maximum {{ limit }} characters")
+     * @Assert\NotBlank
      */
     private $quantity;
 

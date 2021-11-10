@@ -9,10 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Vous possedez déjà un compte")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -25,6 +26,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Email(message = "Cette E-mail '{{ value }}' n'est pas valide.")
      */
     private $email;
 
@@ -36,166 +39,264 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/", message="Votre mot de passe doit contenir au moins un caractère minuscle, un caractère majuscule, un chiffre, un signe spécial de @#-_$%^&+=§ !? et entre 8 et 20 caractères")
+     * @Assert\NotCompromisedPassword
      */
     private $password;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $FabArmes;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $FabArmures;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $Ingenierie;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $Joaillerie;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $ArtsObscurs;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $Cuisine;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $Ameublement;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $SwordShield;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $Lance;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $Arc;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $BatonFeu;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $Rapiere;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $HacheDouble;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $Mousquet;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $BatonVie;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $Hachette;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $MarteauDarmes;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $GanteletsGlace;
 
     /**
      * @ORM\Column(type="integer", length=4, nullable=true)
+     * @Assert\Positive
      */
     private $GearScore;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $StatFOR;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $StatDEX;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $StatINT;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $StatCONCEN;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
+     * @Assert\Positive
      */
     private $StatFORME;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $discordid;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $spe;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Votre nom de compagnie doit contenir minimum {{ limit }}",
+     *      maxMessage = "Votre nom de compagnie doit contenir maximum {{ limit }}")
      */
     private $compagnie;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50)
      */
     private $FirstWeapon;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50)
      */
     private $SecondWeapon;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 60,
+     *      notInRangeMessage = "Votre niveau doit être entre {{ min }} et {{ max }}",)
      */
     private $level;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $TailleurDePierre;
 
