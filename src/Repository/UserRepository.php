@@ -140,7 +140,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             
             'SELECT u
             FROM App\Entity\User AS u
-            ORDER BY u.spe ASC'
+            ORDER BY u.spe DESC'
         );
 
         return $query->getResult();
