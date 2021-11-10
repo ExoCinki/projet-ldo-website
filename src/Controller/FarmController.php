@@ -35,9 +35,11 @@ class FarmController extends AbstractController
      */
     public function add(Request $request): Response
     {
+        $user = $this->getUser();
         $farm = new Farm();
         $farm->setCheckOrNot(false);
         $farm->setCreatedAt(new DateTime());
+        $farm->setNameUser($user->getPseudo());
         $formfarm = $this->createForm(FarmerType::class, $farm);
         $formfarm->handleRequest($request);
         

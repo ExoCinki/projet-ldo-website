@@ -14,7 +14,6 @@ class FarmerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nameUser', TextType::class,['label' => 'Votre Pseudo'])
             ->add('title', TextType::class,['label' => 'Ressource demandé'])
             ->add('details', TextType::class,['label' => 'Prix Unitaire'])
             ->add('quantity', TextType::class,['label' => 'Quantité'])
