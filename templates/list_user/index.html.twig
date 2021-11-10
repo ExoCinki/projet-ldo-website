@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recensement{% endblock %}
+
+{% block body %}
+<table class="table table-striped table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlist  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
