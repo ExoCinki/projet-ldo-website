@@ -1,35 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Demande de farm
+{% block title %}Liste des demande de craft
 {% endblock %}
 
 {% block body %}
 	<div class="container">
 		<h2 class="text-light text-center mt-3">
-			<i class="fas fa-tractor"></i>
-			Farming Time :
+			<i class="fas fa-drafting-compass"></i>
+			Crafting Time :
 		</h2>
-		<h6 class="text-light text-center mt-3">
-			<i class="fas fa-shipping-fast"></i>
-			MaeJhin Page
-			<i class="fas fa-shipping-fast"></i>
-		</h6>
 		{% if is_granted('ROLE_USER') %}
-			<a href="{{path('farm_add')}}">
+			<a href="{{path('craft_request_add')}}">
 				<button type="button" class="btn btn-success">Ajouter</button>
 			</a>
 		{% endif %}
 		<table class="table table-dark table-hover mt-5">
 			<thead>
 				<tr>
-					<th scope="col">Nom de la Ressource</th>
-					<th scope="col">Prix Unitaire</th>
+					<th scope="col">Objet a Craft</th>
+					<th scope="col">Recette du Craft</th>
 					<th scope="col">Quantité</th>
 					<th scope="col">Statue</th>
 					<th scope="col">Pseudo du demandeur</th>
-					<th scope="col">Créer le</th>
 					<th scope="col">Pseudo du Farmeur</th>
-					{% if is_granted('ROLE_FARM') %}
+					<th scope="col">Créer le</th>
+					{% if is_granted('ROLE_CRAFT') %}
 						<th scope="col">Action</th>
 					{% elseif is_granted('ROLE_ADMIN') %}
 						<th scope="col">Action</th>
@@ -38,12 +33,12 @@
 			</thead>
 			<tbody>
 				<tr>
-					{% for farm in farmchecklist  %}
-						<td>{{farm.title}}</td>
-						<td>{{farm.details}}</td>
-						<td>{{farm.quantity}}</td>
+					{% for craft in craftchecklist  %}
+						<td>{{craft.title}}</td>
+						<td>{{craft.details}}</td>
+						<td>{{craft.quantity}}</td>
 						<td>
-							{% if farm.checkOrNot == 0 %}
+							{% if craft.checkOrNot == 0 %}
 								<i class="fas fa-times"></i>
 								En Cours
 							{% else %}
@@ -51,17 +46,17 @@
 								Terminer
 							{% endif %}
 						</td>
-						<td>{{farm.nameUser}}</td>
-						<td>{{farm.createdAt|date('Y-m-d')}}</td>
-						<td>{{farm.farmeur}}</td>
-						{% if is_granted('ROLE_FARM') %}
+						<td>{{craft.nameUser}}</td>
+						<td>{{craft.farmeur}}</td>
+						<td>{{craft.createdAt|date('Y-m-d')}}</td>
+						{% if is_granted('ROLE_CRAFT') %}
 							<td>
-								<a href="{{path('farm_check', { id: farm.id })}}">
+								<a href="{{path('craft_request_check', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
 									</button>
 								</a>
-								<a href="{{path('farm_loading', { id: farm.id })}}">
+								<a href="{{path('craft_request_loading', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										Je prend
 									</button>
@@ -69,12 +64,12 @@
 							</td>
 						{% elseif is_granted('ROLE_ADMIN') %}
 							<td>
-								<a href="{{path('farm_check', { id: farm.id })}}">
+								<a href="{{path('craft_request_check', { id: farm.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
 									</button>
 								</a>
-								<a href="{{path('farm_loading', { id: farm.id })}}">
+								<a href="{{path('craft_request_loading', { id: farm.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										Je prend
 									</button>
@@ -94,13 +89,13 @@
   	<table class="table table-dark table-hover mt-5">
 			<thead>
 				<tr>
-					<th scope="col">Nom de la Ressource</th>
-					<th scope="col">Prix Unitaire</th>
+					<th scope="col">Objet a Craft</th>
+					<th scope="col">Recette du Craft</th>
 					<th scope="col">Quantité</th>
 					<th scope="col">Statue</th>
 					<th scope="col">Pseudo du demandeur</th>
-					<th scope="col">Créer le</th>
 					<th scope="col">Pseudo du Farmeur</th>
+					<th scope="col">Créer le</th>
 					{% if is_granted('ROLE_FARM') %}
 						<th scope="col">Action</th>
 					{% elseif is_granted('ROLE_ADMIN') %}
@@ -110,12 +105,12 @@
 			</thead>
 			<tbody>
 				<tr>
-					{% for farm in farmnotcheck  %}
-						<td>{{farm.title}}</td>
-						<td>{{farm.details}}</td>
-						<td>{{farm.quantity}}</td>
+					{% for craft in craftnotcheck  %}
+						<td>{{craft.title}}</td>
+						<td>{{craft.details}}</td>
+						<td>{{craft.quantity}}</td>
 						<td>
-							{% if farm.checkOrNot == 0 %}
+							{% if craft.checkOrNot == 0 %}
 								<i class="fas fa-times"></i>
 								En Cours
 							{% else %}
@@ -123,12 +118,12 @@
 								Terminer
 							{% endif %}
 						</td>
-						<td>{{farm.nameUser}}</td>
-						<td>{{farm.createdAt|date('Y-m-d')}}</td>
-						<td>{{farm.farmeur}}</td>
-						{% if is_granted('ROLE_FARM') %}
+						<td>{{craft.nameUser}}</td>
+						<td>{{craft.farmeur}}</td>
+						<td>{{craft.createdAt|date('Y-m-d')}}</td>
+						{% if is_granted('ROLE_CRAFT') %}
 							<td>
-								<a href="{{path('farm_check', { id: farm.id })}}">
+								<a href="{{path('craft_request_check', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
 									</button>
@@ -136,7 +131,7 @@
 							</td>
 						{% elseif is_granted('ROLE_ADMIN') %}
 							<td>
-								<a href="{{path('farm_check', { id: farm.id })}}">
+								<a href="{{path('craft_request_check', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
 										<i class="far fa-check-circle"></i>
 									</button>

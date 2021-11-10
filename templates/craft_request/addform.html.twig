@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LDO - Crafting
+{% endblock %}
+
+{% block body %}
+	<div class="container text-light">
+		<h1 class="text-center m-5">
+			<i class="fas fa-drafting-compass"></i>
+			Demande de Craft</h1>
+		{{ form_start(formcraft) }}
+		<div class="row">
+			<div class="col">
+				{{ form_row(formcraft.title) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(formcraft.details) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_row(formcraft.quantity) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col text-center">
+				<button type="submit" class="btn btn-primary btn-lg text-center">Enregistrer</button>
+				{{ form_end(formcraft) }}
+			</div>
+		</div>
+	{% endblock %}

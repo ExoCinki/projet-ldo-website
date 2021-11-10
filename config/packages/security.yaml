@@ -39,8 +39,12 @@ security:
         - { path: /farm, roles: ROLE_USER }
         - { path: /farm_add, roles: ROLE_USER }
         - { path: /farm_check, roles: ROLE_FARM }
-        
+        - { path: /farm_loading, roles: ROLE_FARM }
+        - { path: /craft_request_check, roles: ROLE_CRAFT }
+        - { path: /craft_request_loading, roles: ROLE_CRAFT }
+
+
     role_hierarchy:
-        ROLE_ADMIN: ROLE_LDO
+        ROLE_ADMIN: ROLE_CRAFT
         ROLE_FARM: ROLE_USER
         
