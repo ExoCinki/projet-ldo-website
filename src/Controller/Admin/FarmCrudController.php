@@ -20,12 +20,12 @@ class FarmCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('title'),
-            TextField::new('details'),
-            ChoiceField::new('checkornot')->setChoices(['En Cours' => 0, 'Terminé' => 1]),
-            TextField::new('Farmeur'),
-            TextField::new('nameuser'),
-            TextField::new('quantity'),
+            TextField::new('title','Nom de la Ressource'),
+            TextField::new('details','Prix Unitaire'),
+            ChoiceField::new('checkornot','Statue')->setChoices(['En Cours' => 0, 'Terminé' => 1]),
+            TextField::new('Farmeur','Pseudo du Farmeur'),
+            TextField::new('nameuser','Pseudo du demandeur'),
+            TextField::new('quantity','	Quantité'),
         ];
     }
 
