@@ -15,8 +15,9 @@ class FarmerType extends AbstractType
     {
         $builder
             ->add('nameUser', TextType::class,['label' => 'Votre Pseudo'])
-            ->add('title', TextType::class,['label' => 'Titre de la demande'])
-            ->add('details', TextareaType::class,['label' => 'Description de la demande'])
+            ->add('title', TextType::class,['label' => 'Ressource demandé'])
+            ->add('details', TextType::class,['label' => 'Prix Unitaire'])
+            ->add('quantity', TextType::class,['label' => 'Quantité'])
             
         ;
     }

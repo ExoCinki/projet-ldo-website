@@ -54,6 +54,11 @@ class Farm
      */
     private $farmeur;
 
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $quantity;
+
 
     public function getId(): ?int
     {
@@ -140,6 +145,18 @@ class Farm
     public function setFarmeur(string $farmeur): self
     {
         $this->farmeur = $farmeur;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?string
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(string $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
