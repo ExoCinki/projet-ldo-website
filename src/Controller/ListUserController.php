@@ -16,9 +16,19 @@ class ListUserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        $userlist = $userRepository->findAllUserBySpe();
+        $userlistTank = $userRepository->findAllUserByTank();
+        $userlistOffTank = $userRepository->findAllUserByOffTank();
+        $userlistHeal = $userRepository->findAllUserByHeal();
+        $userlistPalaHeal = $userRepository->findAllUserByPalaHeal();
+        $userlistMage = $userRepository->findAllUserByMage();
+        $userlistDPSDistant = $userRepository->findAllUserByDPSDistant();
         return $this->render('list_user/index.html.twig', [
-            'userlist' => $userlist,
+            'userlistTank' => $userlistTank,
+            'userlistOffTank' => $userlistOffTank,
+            'userlistHeal' => $userlistHeal,
+            'userlistPalaHeal' => $userlistPalaHeal,
+            'userlistMage' => $userlistMage,
+            'userlistDPSDistant' => $userlistDPSDistant,
         ]);
     }
 }

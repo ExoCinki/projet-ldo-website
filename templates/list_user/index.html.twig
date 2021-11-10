@@ -3,7 +3,9 @@
 {% block title %}Recensement{% endblock %}
 
 {% block body %}
-<table class="table table-striped table-dark mt-5">
+<div class="container">
+ <h2 class="text-light text-center mt-3"> <i class="fas fa-shield-alt"></i> Tank : </h2>
+ <table class="table table-dark table-hover mt-5">
   <thead>
     <tr>
       <th scope="col">Pseudo</th>
@@ -14,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-  {% for user in userlist  %}
+  {% for user in userlistTank  %}
     <tr>
       <th scope="row">{{ user.pseudo}}</th>
       <td>{{ user.spe}}</td>
@@ -25,5 +27,137 @@
  {% endfor %}
   </tbody>
 </table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-khanda"></i> Off Tank : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlistOffTank  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-syringe"></i> Heal : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlistHeal  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-first-aid"></i> PalaHeal : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlistPalaHeal  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-hat-wizard"></i> Mage : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlistMage  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
+<div class="container">
+ <h2 class="text-light text-center mt-3"><i class="fas fa-fighter-jet"></i> DPS Distant (Dextérité) : </h2>
+ <table class="table table-dark table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Spé</th>
+      <th scope="col">Level</th>
+      <th scope="col">Arme Principale</th>
+      <th scope="col">Arme Secondaire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlistDPSDistant  %}
+    <tr>
+      <th scope="row">{{ user.pseudo}}</th>
+      <td>{{ user.spe}}</td>
+      <td>{{ user.level}}</td>
+      <td>{{ user.FirstWeapon}}</td>
+      <td>{{ user.SecondWeapon}}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+</div>
+<hr class="mt-3 mb-3 p-1"/>
 
 {% endblock %}

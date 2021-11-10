@@ -131,7 +131,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $query->getResult();
     }
 
-    public function findAllUserBySpe()
+    public function findAllUserBySpeDESC()
     {
             
         $entityManager = $this->getEntityManager();
@@ -145,4 +145,84 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         return $query->getResult();
     }
+
+    public function findAllUserByTank($spe='Tank')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+    public function findAllUserByOffTank($spe='Off Tank')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+    public function findAllUserByHeal($spe='Heal')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+    public function findAllUserByPalaHeal($spe='PalaHeal')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+    public function findAllUserByMage($spe='Mage')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+    public function findAllUserByDPSDistant($spe='DPS Distant (Déxtérité)')
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.spe = :spe'
+        )->setParameter('spe', $spe);
+
+        return $query->getResult();
+    }
+
 }
