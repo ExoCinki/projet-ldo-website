@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\FarmerType;
 use App\Repository\FarmRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,7 +67,7 @@ class FarmController extends AbstractController
         {
             throw $this->createNotFoundException('Demande de farm non trouvé.');
         }
-
+        
         $farm->setCheckOrNot(!$farm->getCheckOrNot());
 
         $em = $this->getDoctrine()->getManager();
@@ -88,8 +89,12 @@ class FarmController extends AbstractController
         {
             throw $this->createNotFoundException('Demande de farm non trouvé.');
         }
-
-        $farm->setFarmeur($user->getPseudo());
+        if($farm->getFarmeur() === null){
+            $farm->setFarmeur($user->getPseudo());
+        }else{
+            $this->addFlash('danger', 'Cette demande est déjà prise.');
+        }
+        
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
