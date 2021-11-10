@@ -267,7 +267,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 2,
-     *      max = 50)
+     *      max = 50,
+     *      minMessage = "Choissisez Une Arme principale",
+     *      maxMessage = "Merci de séléctionné une Arme principale")
      */
     private $FirstWeapon;
 
@@ -276,7 +278,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 2,
-     *      max = 50)
+     *      max = 50,
+     *      minMessage = "Choissisez Une Arme secondaire",
+     *      maxMessage = "Merci de séléctionné une Arme secondaire")
      */
     private $SecondWeapon;
 

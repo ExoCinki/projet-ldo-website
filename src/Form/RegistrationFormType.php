@@ -20,28 +20,26 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email')
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Entré un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} characters',
                         'max' => 4096,
                     ]),
                 ],
             ])
-            ->add('discordid', TextType::class, ['label' => 'Discord ID'])
+            ->add('discordid', TextType::class, ['label' => 'Discord ID','help' => 'Exemple : MonPseudo#1111'])
             ->add('pseudo', TextType::class, ['label' => 'Pseudo'])
             ->add('level', IntegerType::class, ['label' => 'Level'])
             ->add('spe', ChoiceType::class, [
                 'label' => 'Spé',
                 'choices'  => [
+                    'Choissisez votre spé' => '',
                     'Tank' => 'Tank',
                     'Off Tank' => 'Off Tank',
                     'Heal' => 'Heal',
@@ -53,6 +51,7 @@ class RegistrationFormType extends AbstractType
             ->add('FirstWeapon', ChoiceType::class, [
                 'label' => 'Arme principal',
                 'choices'  => [
+                    'Choissisez votre Armes' => '',
                     'Epée et bouclier' => 'Epée et bouclier',
                     'Lance' => 'Lance',
                     'Arc' => 'Arc',
@@ -69,6 +68,7 @@ class RegistrationFormType extends AbstractType
             ->add('SecondWeapon', ChoiceType::class, [
                 'label' => 'Arme Secondaire',
                 'choices'  => [
+                    'Choissisez votre Armes' => '',
                     'Epée et bouclier' => 'Epée et bouclier',
                     'Lance' => 'Lance',
                     'Arc' => 'Arc',
@@ -88,6 +88,7 @@ class RegistrationFormType extends AbstractType
             ->add('FabArmes', ChoiceType::class, [
                 'label' => 'Fabrication d\'armes',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -106,6 +107,7 @@ class RegistrationFormType extends AbstractType
             ->add('FabArmures', ChoiceType::class, [
                 'label' => 'Fabrication d\'armures',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -123,6 +125,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('Ingenierie', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -140,6 +143,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('Joaillerie', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -157,6 +161,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('ArtsObscurs', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -174,6 +179,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('Cuisine', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -191,6 +197,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('Ameublement', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -208,6 +215,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('TailleurDePierre', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un niveau' => '',
                     '0' => 0,
                     '10' => 10,
                     '30' => 30,
@@ -226,6 +234,8 @@ class RegistrationFormType extends AbstractType
             ->add('SwordShield', ChoiceType::class, [
                 'label' => 'Epée et bouclier',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -251,6 +261,8 @@ class RegistrationFormType extends AbstractType
             ->add('Lance', ChoiceType::class, [
                 'label' => 'Lance',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -276,6 +288,8 @@ class RegistrationFormType extends AbstractType
             ->add('Arc', ChoiceType::class, [
                 'label' => 'Arc',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -301,6 +315,8 @@ class RegistrationFormType extends AbstractType
             ->add('BatonFeu', ChoiceType::class, [
                 'label' => 'Bâton de feu',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -326,6 +342,8 @@ class RegistrationFormType extends AbstractType
             ->add('Rapiere', ChoiceType::class, [
                 'label' => 'Rapiere',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -351,6 +369,8 @@ class RegistrationFormType extends AbstractType
             ->add('HacheDouble', ChoiceType::class, [
                 'label' => 'Hache Double',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -376,6 +396,8 @@ class RegistrationFormType extends AbstractType
             ->add('Mousquet', ChoiceType::class, [
                 'label' => 'Mousquet',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -401,6 +423,8 @@ class RegistrationFormType extends AbstractType
             ->add('BatonVie', ChoiceType::class, [
                 'label' => 'Bâton de vie',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -426,6 +450,8 @@ class RegistrationFormType extends AbstractType
             ->add('Hachette', ChoiceType::class, [
                 'label' => 'Hachette',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -451,6 +477,8 @@ class RegistrationFormType extends AbstractType
             ->add('MarteauDarmes', ChoiceType::class, [
                 'label' => 'Marteau d\'armes',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
@@ -476,6 +504,8 @@ class RegistrationFormType extends AbstractType
             ->add('GanteletsGlace', ChoiceType::class, [
                 'label' => 'Gantelets de glace',
                 'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
                     '1' => 1,
                     '2' => 2,
                     '3' => 3,
