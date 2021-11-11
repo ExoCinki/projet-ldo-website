@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Absence;
+use App\Entity\CraftRequest;
 use App\Entity\Farm;
 use App\Entity\News;
 use App\Entity\User;
@@ -38,5 +40,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gemmes', 'fas fa-truck', Gemme::class);
         yield MenuItem::linkToCrud('News', 'far fa-calendar-alt', News::class);
         yield MenuItem::linkToCrud('Farm', 'fas fa-tractor', Farm::class);
+        yield MenuItem::linkToCrud('Craft', 'fas fa-drafting-compass', CraftRequest::class);
+        yield MenuItem::linkToCrud('Absence', 'fas fa-bed', Absence::class);
     }
 }
