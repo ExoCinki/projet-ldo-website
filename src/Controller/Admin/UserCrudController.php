@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use phpDocumentor\Reflection\Types\Integer;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -17,12 +16,13 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
+    
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('pseudo'),
-            ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Farmeur' => 'ROLE_FARM', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(),
+            ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Farmeur' => 'ROLE_FARM', 'Crafter' => 'ROLE_CRAFT', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(),
             TextField::new('spe'),
             IntegerField::new('GearScore'),
 
@@ -60,4 +60,5 @@ class UserCrudController extends AbstractCrudController
             IntegerField::new('StatCONCEN')->hideOnIndex(),
         ];
     }
+    
 }

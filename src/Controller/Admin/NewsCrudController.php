@@ -16,6 +16,7 @@ class NewsCrudController extends AbstractCrudController
         return News::class;
     }
 
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -26,4 +27,5 @@ class NewsCrudController extends AbstractCrudController
             DateTimeField::new('updated_at')->hideOnForm()
         ];
     }
+    
 }

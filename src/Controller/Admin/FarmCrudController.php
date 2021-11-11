@@ -15,7 +15,7 @@ class FarmCrudController extends AbstractCrudController
         return Farm::class;
     }
 
- 
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -28,5 +28,5 @@ class FarmCrudController extends AbstractCrudController
             TextField::new('quantity','	Quantité'),
         ];
     }
-
+    
 }
