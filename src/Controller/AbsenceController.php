@@ -43,7 +43,7 @@ class AbsenceController extends AbstractController
             $entityManager->persist($absence);
             $entityManager->flush();
 
-            return $this->redirectToRoute('craft_request');
+            return $this->redirectToRoute('absence');
         }
 
         return $this->render('absence/addform.html.twig',['formabsence' => $formabsence->createView()]);
