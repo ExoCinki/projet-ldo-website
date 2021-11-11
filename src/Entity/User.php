@@ -297,10 +297,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="integer")
      * @Assert\Positive
-     * @Assert\Range(
-     *      min = 1,
-     *      max = 20,
-     *      notInRangeMessage = "Votre niveau d'armes doit être entre {{ min }} et {{ max }}",)
      */
     private $TailleurDePierre;
 
