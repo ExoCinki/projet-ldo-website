@@ -39,7 +39,7 @@ class Farm
     private $details;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
     private $checkOrNot;
 
@@ -106,12 +106,12 @@ class Farm
         return $this;
     }
 
-    public function getCheckOrNot(): ?float
+    public function getCheckOrNot(): ?string
     {
         return $this->checkOrNot;
     }
 
-    public function setCheckOrNot(float $checkOrNot): self
+    public function setCheckOrNot(string $checkOrNot): self
     {
         $this->checkOrNot = $checkOrNot;
 

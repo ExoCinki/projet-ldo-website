@@ -19,7 +19,7 @@ class FarmRepository extends ServiceEntityRepository
         parent::__construct($registry, Farm::class);
     }
 
-    public function findAllFarmNotCheck($checkornot = 0)
+    public function findAllFarmNotCheck($checkornot = 'En attente de validation',$recolte = 'En Cours de Récolte',$trade = "En Attente d'échange")
     {
             
         $entityManager = $this->getEntityManager();
@@ -28,13 +28,16 @@ class FarmRepository extends ServiceEntityRepository
             
             'SELECT u
             FROM App\Entity\Farm AS u
-            WHERE u.checkOrNot = :checkornot'
-        )->setParameter('checkornot', $checkornot);
+            WHERE u.checkOrNot = :checkornot OR u.checkOrNot = :recolte OR u.checkOrNot = :trade '
+        )->setParameter('checkornot', $checkornot)
+        ->setParameter('recolte', $recolte)
+        ->setParameter('trade', $trade);
 
         return $query->getResult();
     }
 
-    public function findAllFarmCheck($checkornot = 1)
+
+    public function findAllFarmCheck($checkornot = 'Commande Fini', $refuser = 'Commande Refuser')
     {
             
         $entityManager = $this->getEntityManager();
@@ -43,8 +46,9 @@ class FarmRepository extends ServiceEntityRepository
             
             'SELECT u
             FROM App\Entity\Farm AS u
-            WHERE u.checkOrNot = :checkornot'
-        )->setParameter('checkornot', $checkornot);
+            WHERE u.checkOrNot = :checkornot OR u.checkOrNot = :refuser'
+        )->setParameter('checkornot', $checkornot)
+        ->setParameter('refuser', $refuser);
 
         return $query->getResult();
     }
