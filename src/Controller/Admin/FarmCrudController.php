@@ -22,7 +22,7 @@ class FarmCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title','Nom de la Ressource'),
             TextField::new('details','Prix Unitaire'),
-            ChoiceField::new('checkornot','Statue')->setChoices(['Commande Refuser' => 'Commande Refuser', 'En Cours de Récolte' => 'En Cours de Récolte',"En Attente d'échange" => "En Attente d'échange","Commande Fini" => "Commande Fini"]),
+            ChoiceField::new('checkornot','Statue')->setChoices(['En attente de validation'=>'En attente de validation','Commande Refuser' => 'Commande Refuser', 'En Cours de Récolte' => 'En Cours de Récolte',"En Attente d'échange" => "En Attente d'échange","Commande Fini" => "Commande Fini"]),
             TextField::new('Farmeur','Pseudo du Farmeur'),
             TextField::new('nameuser','Pseudo du demandeur'),
             TextField::new('quantity','	Quantité'),
