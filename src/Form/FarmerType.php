@@ -16,9 +16,7 @@ class FarmerType extends AbstractType
         $builder
             ->add('title', TextType::class,['label' => 'Ressource demandé'])
             ->add('details', TextType::class,['label' => 'Prix Unitaire'])
-            ->add('quantity', TextType::class,['label' => 'Quantité'])
-            
-        ;
+            ->add('quantity', TextType::class,['label' => 'Quantité']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

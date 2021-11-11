@@ -31,7 +31,7 @@ class Farm
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
      *      min = 1,
-     *      max = 8,
+     *      max = 10,
      *      minMessage = "Votre Prix doit avoir minimum {{ limit }} characters",
      *      maxMessage = "Votre Prix doit avoir maximum {{ limit }} characters")
      * @Assert\NotBlank
@@ -56,14 +56,12 @@ class Farm
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=80)
-     * @Assert\NotBlank
      */
     private $nameUser;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(min=1,max=80)
-     * @Assert\NotBlank
      */
     private $farmeur;
 
@@ -71,7 +69,7 @@ class Farm
      * @ORM\Column(type="string", length=10)
      * @Assert\Length(
      *      min = 1,
-     *      max = 8,
+     *      max = 10,
      *      minMessage = "Votre Quantité doit avoir minimum {{ limit }} characters",
      *      maxMessage = "Votre Quantité doit avoir maximum {{ limit }} characters")
      * @Assert\NotBlank
