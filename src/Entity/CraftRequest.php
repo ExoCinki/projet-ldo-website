@@ -37,7 +37,7 @@ class CraftRequest
     private $details;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=255)
      */
     private $checkOrNot;
 
@@ -56,7 +56,6 @@ class CraftRequest
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(min=2,max=60)
-     * @Assert\NotBlank
      */
     private $farmeur;
 
@@ -100,12 +99,12 @@ class CraftRequest
         return $this;
     }
 
-    public function getCheckOrNot(): ?bool
+    public function getCheckOrNot(): ?string
     {
         return $this->checkOrNot;
     }
 
-    public function setCheckOrNot(bool $checkOrNot): self
+    public function setCheckOrNot(string $checkOrNot): self
     {
         $this->checkOrNot = $checkOrNot;
 

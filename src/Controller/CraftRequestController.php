@@ -20,29 +20,30 @@ class CraftRequestController extends AbstractController
      */
     public function index(CraftRequestRepository $CraftRequestRepository): Response
     {
-        $craftcheck = $CraftRequestRepository->findAllCraftNotCheck();
-        $craftnotcheck = $CraftRequestRepository->findAllCraftCheck();
+        $craftcheck = $CraftRequestRepository->findAllCraftCheck();
+        $craftnotcheck = $CraftRequestRepository->findAllCraftNotCheck();
+        // dd($craftcheck);
         return $this->render('craft_request/index.html.twig', [
             'craftchecklist' => $craftcheck,
             'craftnotcheck' => $craftnotcheck,
         ]);
+       
     }
+
     /**
-     * @Route("/craftrequest/add", name="craft_request_add")
+     * @Route("/craft/add", name="craft_add")
      * @IsGranted("ROLE_USER")
      */
     public function add(Request $request): Response
     {
         $user = $this->getUser();
         $craft = new CraftRequest();
-        $craft->setCheckOrNot(false);
+        $craft->setCheckOrNot('En attente de validation');
         $craft->setCreatedAt(new DateTime());
         $craft->setNameUser($user->getPseudo());
         $formcraft = $this->createForm(ResquestFarmFormType::class, $craft);
         $formcraft->handleRequest($request);
         
-
-
         if ($formcraft->isSubmitted() && $formcraft->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($craft);
@@ -54,18 +55,14 @@ class CraftRequestController extends AbstractController
         return $this->render('craft_request/addform.html.twig',['formcraft' => $formcraft->createView()]);
     }
 
-     /**
-     * @Route("/craftrequest/{id}/check", name="craft_request_check")
+    /**
+     * @Route("/craft/{id}/refuser", name="craft_trade_refuser")
      * @IsGranted("ROLE_CRAFT")
      */
-    public function check(CraftRequest $CraftRequest = null): Response
+    public function commandrefuser(CraftRequest $craft = null): Response
     {
-        if(null === $CraftRequest)
-        {
-            throw $this->createNotFoundException('Demande de Craft non trouvé.');
-        }
         
-        $CraftRequest->setCheckOrNot(!$CraftRequest->getCheckOrNot());
+        $craft->setCheckOrNot('Commande Refuser');
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
@@ -75,23 +72,26 @@ class CraftRequestController extends AbstractController
         return $this->redirectToRoute('craft_request');
     }
 
-     /**
-     * @Route("/craftrequest/{id}/loading", name="craft_request_loading")
+    /**
+     * @Route("/craft/{id}/loading", name="craft_loading")
      * @IsGranted("ROLE_CRAFT")
      */
-    public function loading(CraftRequest $CraftRequest = null): Response
+    public function loading(CraftRequest $craft = null): Response
     {
         $user = $this->getUser();
-        if(null === $CraftRequest)
+        if(null === $craft)
         {
-            throw $this->createNotFoundException('Demande de Craft non trouvé.');
+            throw $this->createNotFoundException('Demande de craft non trouvé.');
         }
-        if($CraftRequest->getFarmeur() === null){
-            $CraftRequest->setFarmeur($user->getPseudo());
-        }else{
+        if($craft->getFarmeur() === null){
+            $craft->setFarmeur($user->getPseudo());
+        }
+        else
+        {
             $this->addFlash('danger', 'Cette demande est déjà prise.');
         }
-        
+
+        $craft->setCheckOrNot('En Cours de Craft');
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
@@ -100,4 +100,44 @@ class CraftRequestController extends AbstractController
 
         return $this->redirectToRoute('craft_request');
     }
+    
+    /**
+     * @Route("/craft/{id}/wait", name="craft_trade_waiting")
+     * @IsGranted("ROLE_CRAFT")
+     */
+    public function tradewait(CraftRequest $craft = null): Response
+    {
+
+        $craft->setCheckOrNot("En Attente d'échange");
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        $this->addFlash('success', 'Demande de Craft archivé.');
+
+        return $this->redirectToRoute('craft_request');
+    }
+
+     /**
+     * @Route("/craft/{id}/check", name="craft_check")
+     * @IsGranted("ROLE_CRAFT")
+     */
+    public function check(CraftRequest $craft = null): Response
+    {
+        if(null === $craft)
+        {
+            throw $this->createNotFoundException('Demande de craft non trouvé.');
+        }
+        
+        $craft->setCheckOrNot('Commande Fini');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        $this->addFlash('success', 'Demande de craft archivé.');
+
+        return $this->redirectToRoute('craft_request');
+    }
+
+
 }

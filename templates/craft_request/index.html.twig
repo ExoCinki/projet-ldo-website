@@ -10,7 +10,7 @@
 			Crafting Time :
 		</h2>
 		{% if is_granted('ROLE_USER') %}
-			<a href="{{path('craft_request_add')}}">
+			<a href="{{path('craft_add')}}">
 				<button type="button" class="btn btn-success">Ajouter</button>
 			</a>
 		{% endif %}
@@ -23,55 +23,79 @@
 					<th scope="col">Statue</th>
 					<th scope="col">Pseudo du demandeur</th>
 					<th scope="col">Pseudo du Crafteur</th>
-					<th scope="col">Créer le</th>
 					{% if is_granted('ROLE_CRAFT') %}
 						<th scope="col">Action</th>
+						<th scope="col">Action</th>
 					{% elseif is_granted('ROLE_ADMIN') %}
+						<th scope="col">Action</th>
 						<th scope="col">Action</th>
 					{% endif %}
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					{% for craft in craftchecklist  %}
+					{% for craft in craftnotcheck  %}
 						<td>{{craft.title}}</td>
 						<td>{{craft.details}}</td>
 						<td>{{craft.quantity}}</td>
 						<td>
-							{% if craft.checkOrNot == 0 %}
-								<i class="fas fa-times"></i>
-								En Cours
-							{% else %}
-								<i class="far fa-check-circle"></i>
-								Terminer
+							{% if craft.checkOrNot == 'En Cours de Craft' %}
+								<i class="fas fa-user"></i> Craft
+							{% elseif craft.checkOrNot == 'En Attente d\'échange' %}
+								<i class="fas fa-people-arrows"></i> Echange
+							{% elseif craft.checkOrNot == 'En attente de validation' %}
+							<i class="fas fa-people-arrows"></i> En Attente
 							{% endif %}
 						</td>
 						<td>{{craft.nameUser}}</td>
 						<td>{{craft.farmeur}}</td>
-						<td>{{craft.createdAt|date('Y-m-d')}}</td>
 						{% if is_granted('ROLE_CRAFT') %}
 							<td>
-								<a href="{{path('craft_request_check', { id: craft.id })}}">
-									<button type="submit" class="btn btn-success btn-lg text-center">
-										<i class="far fa-check-circle"></i>
+								<a href="{{path('craft_trade_refuser', { id: craft.id })}}">
+									<button type="submit" class="btn btn-danger text-center text-center m-1">
+										<i class="fas fa-times"></i> Refuser
 									</button>
 								</a>
-								<a href="{{path('craft_request_loading', { id: craft.id })}}">
-									<button type="submit" class="btn btn-success btn-lg text-center">
-										Je prend
+								<a href="{{path('craft_loading', { id: craft.id })}}">
+									<button type="submit" class="btn btn-success text-center">
+									<i class="fas fa-user"></i>	Craft
+									</button>
+								</a>
+								</td>
+								<td>
+								<a href="{{path('craft_trade_waiting', { id: craft.id })}}">
+									<button type="submit" class="btn btn-success text-center m-1">
+									<i class="fas fa-people-arrows"></i> Echange
+									</button>
+								</a>
+								<a href="{{path('craft_check', { id: craft.id })}}">
+									<button type="submit" class="btn btn-success text-center">
+										<i class="far fa-check-circle"></i> Fini
 									</button>
 								</a>
 							</td>
 						{% elseif is_granted('ROLE_ADMIN') %}
 							<td>
-								<a href="{{path('craft_request_check', { id: farm.id })}}">
+								<a href="{{path('craft_trade_refuser', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
-										<i class="far fa-check-circle"></i>
+										<i class="fas fa-times"></i> Refuser
 									</button>
 								</a>
-								<a href="{{path('craft_request_loading', { id: farm.id })}}">
+								<a href="{{path('craft_loading', { id: craft.id })}}">
 									<button type="submit" class="btn btn-success btn-lg text-center">
-										Je prend
+									<i class="fas fa-user"></i>	Craft
+									</button>
+								</a>
+							</td>
+							<td>
+								<a href="{{path('craft_trade_waiting', { id: craft.id })}}">
+									<button type="submit" class="btn btn-success btn-lg text-center">
+									<i class="fas fa-people-arrows"></i> Echange
+									</button>
+								</a>
+								<a href="{{path('craft_check', { id: craft.id })}}">
+									<button type="submit" class="btn btn-success btn-lg text-center">
+										<i class="far fa-check-circle"></i> Fini
 									</button>
 								</a>
 							</td>
@@ -96,48 +120,26 @@
 					<th scope="col">Pseudo du demandeur</th>
 					<th scope="col">Pseudo du Crafteur</th>
 					<th scope="col">Créer le</th>
-					{% if is_granted('ROLE_FARM') %}
-						<th scope="col">Action</th>
-					{% elseif is_granted('ROLE_ADMIN') %}
-						<th scope="col">Action</th>
-					{% endif %}
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					{% for craft in craftnotcheck  %}
+					{% for craft in craftchecklist  %}
 						<td>{{craft.title}}</td>
 						<td>{{craft.details}}</td>
 						<td>{{craft.quantity}}</td>
 						<td>
-							{% if craft.checkOrNot == 0 %}
+							{% if craft.checkOrNot == 'Commande Refuser' %}
 								<i class="fas fa-times"></i>
-								En Cours
-							{% else %}
+								Commande Refuser
+							{% elseif craft.checkOrNot == 'Commande Fini' %}
 								<i class="far fa-check-circle"></i>
-								Terminer
+								Commande Fini
 							{% endif %}
 						</td>
 						<td>{{craft.nameUser}}</td>
 						<td>{{craft.farmeur}}</td>
-						<td>{{craft.createdAt|date('Y-m-d')}}</td>
-						{% if is_granted('ROLE_CRAFT') %}
-							<td>
-								<a href="{{path('craft_request_check', { id: craft.id })}}">
-									<button type="submit" class="btn btn-success btn-lg text-center">
-										<i class="far fa-check-circle"></i>
-									</button>
-								</a>
-							</td>
-						{% elseif is_granted('ROLE_ADMIN') %}
-							<td>
-								<a href="{{path('craft_request_check', { id: craft.id })}}">
-									<button type="submit" class="btn btn-success btn-lg text-center">
-										<i class="far fa-check-circle"></i>
-									</button>
-								</a>
-							</td>
-						{% endif %}
+						<td>{{craft.createdAt|date("m/d/Y")}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

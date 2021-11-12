@@ -19,7 +19,7 @@ class CraftRequestRepository extends ServiceEntityRepository
         parent::__construct($registry, CraftRequest::class);
     }
 
-    public function findAllCraftNotCheck($checkornot = 0)
+    public function findAllCraftNotCheck($checkornot = 'En attente de validation',$Craft = 'En Cours de Craft',$trade = "En Attente d'échange")
     {
             
         $entityManager = $this->getEntityManager();
@@ -28,13 +28,16 @@ class CraftRequestRepository extends ServiceEntityRepository
             
             'SELECT u
             FROM App\Entity\CraftRequest AS u
-            WHERE u.checkOrNot = :checkornot'
-        )->setParameter('checkornot', $checkornot);
+            WHERE u.checkOrNot = :checkornot OR u.checkOrNot = :Craft OR u.checkOrNot = :trade '
+        )->setParameter('checkornot', $checkornot)
+        ->setParameter('Craft', $Craft)
+        ->setParameter('trade', $trade);
 
         return $query->getResult();
     }
 
-    public function findAllCraftCheck($checkornot = 1)
+
+    public function findAllCraftCheck($checkornot = 'Commande Fini', $refuser = 'Commande Refuser')
     {
             
         $entityManager = $this->getEntityManager();
@@ -43,8 +46,9 @@ class CraftRequestRepository extends ServiceEntityRepository
             
             'SELECT u
             FROM App\Entity\CraftRequest AS u
-            WHERE u.checkOrNot = :checkornot'
-        )->setParameter('checkornot', $checkornot);
+            WHERE u.checkOrNot = :checkornot OR u.checkOrNot = :refuser'
+        )->setParameter('checkornot', $checkornot)
+        ->setParameter('refuser', $refuser);
 
         return $query->getResult();
     }
