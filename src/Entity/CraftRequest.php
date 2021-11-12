@@ -29,7 +29,7 @@ class CraftRequest
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
      *      min = 1,
-     *      max = 8,
+     *      max = 255,
      *      minMessage = "Votre Prix doit avoir minimum {{ limit }} characters",
      *      maxMessage = "Votre Prix doit avoir maximum {{ limit }} characters")
      * @Assert\NotBlank
