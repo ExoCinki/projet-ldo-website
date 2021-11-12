@@ -30,8 +30,8 @@ class CraftRequest
      * @Assert\Length(
      *      min = 1,
      *      max = 255,
-     *      minMessage = "Votre Prix doit avoir minimum {{ limit }} characters",
-     *      maxMessage = "Votre Prix doit avoir maximum {{ limit }} characters")
+     *      minMessage = "Votre recette doit avoir minimum {{ limit }} characters",
+     *      maxMessage = "Votre recette doit avoir maximum {{ limit }} characters")
      * @Assert\NotBlank
      */
     private $details;
