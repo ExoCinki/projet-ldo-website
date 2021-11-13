@@ -26,7 +26,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('spe'),
             IntegerField::new('GearScore'),
 
-            TextField::new('compagnie'),
+            TextField::new('compagnie')->hideOnIndex(),
             TextField::new('FirstWeapon'),
             TextField::new('SecondWeapon'),
             TextField::new('discordid'),
