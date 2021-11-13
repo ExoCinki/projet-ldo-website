@@ -26,8 +26,8 @@
 			{% for person in absence  %}
 				<tr>
 					<td>{{person.name}}</td>
-					<td>{{person.debut|date("m/d/Y")}}</td>
-					<td>{{person.fin|date("m/d/Y")}}</td>
+					<td>{{person.debut|date("d/m/Y")}}</td>
+					<td>{{person.fin|date("d/m/Y")}}</td>
 				</tr>
 			{% endfor %}
 		</tbody>
