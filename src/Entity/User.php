@@ -46,49 +46,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $FabArmes;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $FabArmures;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $Ingenierie;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $Joaillerie;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $ArtsObscurs;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $Cuisine;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $Ameublement;
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -98,7 +90,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -108,7 +99,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -118,7 +108,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -128,7 +117,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -138,7 +126,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -148,7 +135,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -158,7 +144,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -168,7 +153,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -178,7 +162,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -188,7 +171,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=2, nullable=true)
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 20,
@@ -198,37 +180,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", length=4, nullable=true)
-     * @Assert\Positive
      */
     private $GearScore;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $StatFOR;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $StatDEX;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $StatINT;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $StatCONCEN;
 
     /**
      * @ORM\Column(type="integer", length=3, nullable=true)
-     * @Assert\Positive
      */
     private $StatFORME;
 
@@ -285,7 +261,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Positive
      * @Assert\Range(
      *      min = 1,
      *      max = 60,
@@ -295,7 +270,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Positive
      */
     private $TailleurDePierre;
 
