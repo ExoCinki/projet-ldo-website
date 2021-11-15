@@ -46,8 +46,8 @@
 				{{ form_row(registrationForm.SecondWeapon) }}
 			</div>
 		</div>
+		<h2 class="text-center m-5"><i class="fas fa-pencil-ruler"></i> Crafting</h2>
 		<div class="row">
-			<h2 class="text-center m-5"><i class="fas fa-pencil-ruler"></i> Crafting</h2>
 			<div class="col">
 				{{ form_row(registrationForm.FabArmes) }}
 			</div>
@@ -75,9 +75,23 @@
 				{{ form_row(registrationForm.TailleurDePierre) }}
 			</div>
 		</div>
-
 		<div class="row">
-			<h2 class="text-center m-5"><i class="fas fa-box"></i> Armes</h2>
+			<div class="col">
+				{{ form_row(registrationForm.fonderie) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.menuiserie) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.tannerie) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.tissage) }}
+			</div>
+		</div>
+		<h2 class="text-center m-5"><i class="fas fa-box"></i> Armes</h2>
+		<div class="row">
+			
 			<div class="col">
 				{{ form_row(registrationForm.SwordShield) }}
 			</div>

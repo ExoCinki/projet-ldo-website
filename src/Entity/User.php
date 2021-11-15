@@ -273,6 +273,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $TailleurDePierre;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $fonderie;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $menuiserie;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tannerie;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tissage;
+
 
     public function getId(): ?int
     {
@@ -743,6 +763,54 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTailleurDePierre(int $TailleurDePierre): self
     {
         $this->TailleurDePierre = $TailleurDePierre;
+
+        return $this;
+    }
+
+    public function getFonderie(): ?int
+    {
+        return $this->fonderie;
+    }
+
+    public function setFonderie(int $fonderie): self
+    {
+        $this->fonderie = $fonderie;
+
+        return $this;
+    }
+
+    public function getMenuiserie(): ?int
+    {
+        return $this->menuiserie;
+    }
+
+    public function setMenuiserie(int $menuiserie): self
+    {
+        $this->menuiserie = $menuiserie;
+
+        return $this;
+    }
+
+    public function getTannerie(): ?int
+    {
+        return $this->tannerie;
+    }
+
+    public function setTannerie(int $tannerie): self
+    {
+        $this->tannerie = $tannerie;
+
+        return $this;
+    }
+
+    public function getTissage(): ?int
+    {
+        return $this->tissage;
+    }
+
+    public function setTissage(int $tissage): self
+    {
+        $this->tissage = $tissage;
 
         return $this;
     }

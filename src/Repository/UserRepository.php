@@ -131,6 +131,81 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $query->getResult();
     }
 
+    public function findAllUserFonderie($level=150)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.fonderie >= :level'
+        )->setParameter('level', $level);
+
+        return $query->getResult();
+    }
+
+    public function findAllUserMenuiserie($level=150)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.menuiserie >= :level'
+        )->setParameter('level', $level);
+
+        return $query->getResult();
+    }
+
+    public function findAllUserTannerie($level=150)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.tannerie >= :level'
+        )->setParameter('level', $level);
+
+        return $query->getResult();
+    }
+
+    public function findAllUserTissage($level=150)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.tissage >= :level'
+        )->setParameter('level', $level);
+
+        return $query->getResult();
+    }
+
+    public function findAllUserTailleurDePierre($level=150)
+    {
+            
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            
+            'SELECT u
+            FROM App\Entity\User AS u
+            WHERE u.TailleurDePierre >= :level'
+        )->setParameter('level', $level);
+
+        return $query->getResult();
+    }
+
     public function findAllUserBySpeDESC()
     {
             

@@ -34,4 +34,25 @@ class CrafterController extends AbstractController
             'armoring'=> $armoring
         ]);
     }
+
+    /**
+     * @Route("/crafter/transformation", name="crafter_transformation")
+     * @IsGranted("ROLE_USER")
+     */
+    public function transformation(UserRepository $userRepository): Response
+    {
+        $fonderie = $userRepository->findAllUserFonderie();
+        $menuiserie = $userRepository->findAllUserMenuiserie();
+        $tannerie = $userRepository->findAllUserTannerie();
+        $tissage = $userRepository->findAllUserTissage();
+        $tailleurdepierre = $userRepository->findAllUserTailleurDePierre();
+
+        return $this->render('crafter/transformation.html.twig', [
+            'fonderie' => $fonderie,
+            'menuiserie'=> $menuiserie,
+            'tannerie'=> $tannerie,
+            'tissage'=> $tissage,
+            'tailleurdepierre'=> $tailleurdepierre
+        ]);
+    }
 }

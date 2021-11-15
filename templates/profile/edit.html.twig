@@ -6,7 +6,9 @@
 {% block body %}
 	<div class="container text-light">
 
-		<h1 class="text-center m-5"><i class="far fa-address-card"></i> Modification de profile</h1>
+		<h1 class="text-center m-5">
+			<i class="far fa-address-card"></i>
+			Modification de profile</h1>
 		{{ form_start(form) }}
 		<div class="row">
 			<div class="col">
@@ -18,7 +20,7 @@
 				{{ form_row(form.discordid) }}
 			</div>
 		</div>
-        <div class="row">
+		<div class="row">
 			<div class="col">
 				{{ form_row(form.GearScore) }}
 			</div>
@@ -29,7 +31,7 @@
 				{{ form_row(form.compagnie) }}
 			</div>
 		</div>
-        <div class="row">
+		<div class="row">
 			<div class="col">
 				{{ form_row(form.spe) }}
 			</div>
@@ -40,8 +42,8 @@
 				{{ form_row(form.SecondWeapon) }}
 			</div>
 		</div>
+		<h2 class="text-center m-5"><i class="fas fa-pencil-ruler"></i> Crafting</h2>
 		<div class="row">
-			<h2 class="text-center m-5"><i class="fas fa-pencil-ruler"></i> Crafting</h2>
 			<div class="col">
 				{{ form_row(form.FabArmes) }}
 			</div>
@@ -65,10 +67,27 @@
 			<div class="col">
 				{{ form_row(form.Ameublement) }}
 			</div>
+			<div class="col">
+				{{ form_row(form.TailleurDePierre) }}
+			</div>
 		</div>
-
 		<div class="row">
+			<div class="col">
+				{{ form_row(form.fonderie) }}
+			</div>
+			<div class="col">
+				{{ form_row(form.menuiserie) }}
+			</div>
+			<div class="col">
+				{{ form_row(form.tannerie) }}
+			</div>
+			<div class="col">
+				{{ form_row(form.tissage) }}
+			</div>
+		</div>
 			<h2 class="text-center m-5"><i class="fas fa-box"></i> Armes</h2>
+		<div class="row">
+
 			<div class="col">
 				{{ form_row(form.SwordShield) }}
 			</div>
@@ -107,11 +126,11 @@
 				{{ form_row(form.GanteletsGlace) }}
 			</div>
 		</div>
-<div class="row">	
-<div class="col text-center">
-		<button type="submit" class="btn btn-primary btn-lg text-center">Enregistrer</button>
-		{{ form_end(form) }}
+		<div class="row">
+			<div class="col text-center">
+				<button type="submit" class="btn btn-primary btn-lg text-center">Enregistrer</button>
+				{{ form_end(form) }}
+			</div>
 		</div>
-</div>
 	</div>
 </div>{% endblock %}
