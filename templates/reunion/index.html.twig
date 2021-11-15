@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Résumer de Reunion{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1 class="text-center text-light mt-5"><i class="fas fa-newspaper"></i> Résumer de toutes les Réunion : </h1>
+{% for news in reunion %}
+<div class="row">
+<div class="col mt-5">
+<a href="{{path('reunion_resume', { id: news.id })}}">
+<button type="button" class="btn btn-primary btn-lg btn-block">{{news.title}}</button>
+<small class="text-info">Date de publication : {{news.createdAt|date("d/m/Y")}}</small>
+</a>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -29,13 +29,21 @@
 						</li>
 						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-						              <li class="nav-item dropdown">
+						    <li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Crafters
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="{{ path('crafter') }}">Fabrication</a>
 									<a class="dropdown-item" href="{{ path('crafter_transformation') }}">Transformation</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Réunion
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="{{ path('reunion') }}">Liste des Résumer</a>
 								</div>
 							</li>
 							<li class="nav-item active">

@@ -47,9 +47,8 @@ class News
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url
-     * @Assert\NotBlank
      */
     private $picture;
 
