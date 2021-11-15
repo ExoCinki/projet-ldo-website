@@ -3,18 +3,11 @@
 {% block title %}Ligue des Ombres{% endblock %}
 
 {% block body %}
-<h1 class="text-light text-center m-5"><i class="far fa-newspaper"></i> News,Update :</h1>
-{% for new in news %}
-<div class="container text-light text-center mt-3">
-    <div class="row">
-        <div class="col rounded bg-dark">
-            <img src="{{new.picture}}" class="img-fluid m-2 bg-info rounded" alt="" srcset="">
-            <div class="col bg-dark rounded">
-            <h1 class=" rounded">{{new.title}}</h1>
-            <p class="">{{new.content}}</p>
-        </div>
-        </div>
-    </div>
+<div class="container text-center align-middle text-light mt-5">
+<h1><i class="fas fa-server"></i> Serveur Caelum :</h1>
+   <h3 class="mt-5"><i class="fas fa-poll text-primary"></i> Status : {% if data.success == true %} <i class="fas fa-check-square text-success"></i> {% else %} <i class="fas fa-exclamation-circle"></i>{% endif %}</h3>
+   <h3 class="mt-5"><i class="fas fa-users text-info"></i> Joueur en Ligne : {{data.message.players_current}} / {{data.message.players_maximum}}</h3>
+   <h3 class="mt-5"><i class="fas fa-restroom text-warning"></i> File d'attente : {{data.message.queue_current}} Joueur en attente</h3>
+   <h3 class="mt-5"><i class="far fa-hourglass text-danger"></i> Temps d'attente : {{data.message.queue_wait_time_minutes}} minutes</h3>
 </div>
-{% endfor %}
 {% endblock %}
