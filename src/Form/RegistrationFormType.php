@@ -295,6 +295,7 @@ class RegistrationFormType extends AbstractType
                     '50' => 50,
                     '70' => 70,
                     '90' => 90,
+                    '100' => 100,
                     '110' => 110,
                     '130' => 130,
                     '150' => 150,
