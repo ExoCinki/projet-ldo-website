@@ -276,6 +276,7 @@ class RegistrationFormType extends AbstractType
                     '50' => 50,
                     '70' => 70,
                     '90' => 90,
+                    '100' => 100,
                     '110' => 110,
                     '130' => 130,
                     '150' => 150,
@@ -548,6 +549,33 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('MarteauDarmes', ChoiceType::class, [
                 'label' => 'Marteau d\'armes',
+                'choices'  => [
+                    'Choisissez un niveau' => '',
+                    '0' => 0,
+                    '1' => 1,
+                    '2' => 2,
+                    '3' => 3,
+                    '4' => 4,
+                    '5' => 5,
+                    '6' => 6,
+                    '7' => 7,
+                    '8' => 8,
+                    '9' => 9,
+                    '10' => 10,
+                    '11' => 11,
+                    '12' => 12,
+                    '13' => 13,
+                    '14' => 14,
+                    '15' => 15,
+                    '16' => 16,
+                    '17' => 17,
+                    '18' => 18,
+                    '19' => 19,
+                    '20' => 20,
+                ],
+            ])
+            ->add('nethergauntelet', ChoiceType::class, [
+                'label' => 'Gantelets du néant',
                 'choices'  => [
                     'Choisissez un niveau' => '',
                     '0' => 0,

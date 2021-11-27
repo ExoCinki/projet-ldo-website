@@ -293,6 +293,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $tissage;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nether_gauntelet;
+
 
     public function getId(): ?int
     {
@@ -811,6 +816,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTissage(int $tissage): self
     {
         $this->tissage = $tissage;
+
+        return $this;
+    }
+
+    public function getNetherGauntelet(): ?int
+    {
+        return $this->nether_gauntelet;
+    }
+
+    public function setNetherGauntelet(?int $nether_gauntelet): self
+    {
+        $this->nether_gauntelet = $nether_gauntelet;
 
         return $this;
     }
