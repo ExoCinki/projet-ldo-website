@@ -44,6 +44,7 @@ class EditProfileType extends AbstractType
                 'Hachette' => 'Hachette',
                 'Marteau D\'armes' => 'Marteau D\'armes',
                 'Gantelets de glace' => 'Gantelets de glace',
+                'Gantelets du Néant' => 'Gantelets du Néant',
             ],
         ])
         ->add('SecondWeapon', ChoiceType::class, [
@@ -60,6 +61,7 @@ class EditProfileType extends AbstractType
                 'Hachette' => 'Hachette',
                 'Marteau D\'armes' => 'Marteau D\'armes',
                 'Gantelets de glace' => 'Gantelets de glace',
+                'Gantelets du Néant' => 'Gantelets du Néant',
             ],
         ])
         ->add('compagnie', TextType::class, ['label' => 'Compagnie'])
